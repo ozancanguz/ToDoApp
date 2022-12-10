@@ -4,29 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darker"
+    android:padding="24sp"
+    android:background="@color/lightMediumGray"
     tools:context=".ui.fragments.add.AddFragment">
 
     <EditText
         android:id="@+id/title_et"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:background="@drawable/custom_input"
+        android:layout_width="396dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="title"
+
         android:inputType="textPersonName"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
+
         android:id="@+id/description_et"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@android:color/transparent"
+        android:layout_width="375dp"
+        android:background="@drawable/custom_input"
+        android:layout_height="442dp"
+
         android:ems="10"
         android:gravity="top|start"
         android:hint="description"
@@ -36,7 +41,8 @@
         android:paddingEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_et" />
+        app:layout_constraintTop_toBottomOf="@+id/title_et"
+        app:layout_constraintVertical_bias="0.276" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
