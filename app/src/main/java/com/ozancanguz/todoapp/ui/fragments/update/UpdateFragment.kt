@@ -56,6 +56,9 @@ class UpdateFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId==R.id.menu_save){
             updateItem()
+            // delete menu onclick
+        }else if(item.itemId==R.id.menu_delete){
+            deleteSingleItem()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -73,6 +76,9 @@ class UpdateFragment : Fragment() {
 
       // navigate to fragment list
       findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+    }
+
+    private fun deleteSingleItem() {
 
 
     }
