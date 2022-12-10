@@ -1,5 +1,6 @@
 package com.ozancanguz.todoapp.ui.fragments.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -80,6 +81,20 @@ class UpdateFragment : Fragment() {
 
     private fun deleteSingleItem() {
 
+        val builder= AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            viewmodel.deleteSingleItem(args.result)
+            Toast.makeText(
+                requireContext(),
+                "Successfully Removed: ${args.result.title}",
+                Toast.LENGTH_SHORT
+            ).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete '${args.result.title}'?")
+        builder.setMessage("Are you sure you want to remove '${args.result.title}'?")
+        builder.create().show()
 
     }
 
