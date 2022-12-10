@@ -2,11 +2,11 @@
 
 -Navigation Component
 -Room 
+-Coroutines for database 
 -Livedata
 -View Binding
--LottieFiles
-LottieAnimationView
-Architecture:MVVM
+-LottieAnimationView
+-Architecture:MVVM
 
 
 
