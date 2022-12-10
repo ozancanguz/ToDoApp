@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24sp"
-    android:background="@color/lightMediumGray"
+    android:background="@color/darker"
     tools:context=".ui.fragments.update.UpdateFragment">
 
 
@@ -21,15 +21,15 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/current_description_et"
-        android:layout_width="366dp"
-        android:layout_height="456dp"
-        android:background="@drawable/custom_input"
+        android:layout_width="349dp"
+        android:layout_height="474dp"
+        android:background="@color/white"
         android:ems="10"
         android:gravity="top|start"
         android:hint="description"
@@ -39,8 +39,9 @@
         android:paddingEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_title_et" />
+        app:layout_constraintTop_toBottomOf="@+id/current_title_et"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
