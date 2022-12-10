@@ -18,6 +18,7 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     // update ui
      fun updateData(newData:List<ToDo>){
          this.todolist=newData
+        notifyDataSetChanged()
      }
 
     class MyViewHolder(view: View):RecyclerView.ViewHolder(view){
