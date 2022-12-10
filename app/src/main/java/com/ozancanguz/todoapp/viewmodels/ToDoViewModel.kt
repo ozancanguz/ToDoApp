@@ -10,7 +10,7 @@ import com.ozancanguz.todoapp.data.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TodoVieModel(application: Application,repository: Repository):AndroidViewModel(application) {
+class ToDoViewModel(application: Application):AndroidViewModel(application) {
 
     // get dao ref
     private val toDoDao=ToDoDatabase.getDatabase(application).todoDao()
