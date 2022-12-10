@@ -4,6 +4,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.data.model.ToDo
@@ -37,6 +38,11 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         val currentItem=todolist[position]
         holder.itemView.title_txt.text=currentItem.title
         holder.itemView.description_txt.text=currentItem.description
+
+
+        holder.itemView.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_listFragment_to_updateFragment)
+        }
 
 
 

@@ -47,13 +47,6 @@ class ListFragment : Fragment() {
              findNavController().navigate(R.id.action_listFragment_to_addFragment)
          }
 
-        binding.rowLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_updateFragment)
-        }
-
-
-
-
         return view
     }
 
@@ -73,7 +66,7 @@ class ListFragment : Fragment() {
 
     // init rv
     fun initRv(){
-        binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.recyclerView.layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.adapter=listAdapter
     }
 
