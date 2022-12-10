@@ -1,4 +1,4 @@
-package com.ozancanguz.todoapp.data
+package com.ozancanguz.todoapp.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
