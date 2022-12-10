@@ -26,6 +26,11 @@ class Repository(private val toDoDao: ToDoDao) {
         return toDoDao.deleteSingleItem(toDo)
     }
 
+    // delete all items
+    suspend fun deleteAllItems(){
+        return toDoDao.deleteAllItems()
+    }
+
 
 
 
