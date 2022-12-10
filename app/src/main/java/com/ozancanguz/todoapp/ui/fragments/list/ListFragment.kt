@@ -69,7 +69,13 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     // init list fragment menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
          inflater.inflate(R.menu.list_fragment_menu,menu)
-        super.onCreateOptionsMenu(menu, inflater)
+
+        // search query applied
+        val search=menu.findItem(R.id.menu_search)
+        val searchView=search.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled=true
+        searchView?.setOnQueryTextListener(this)
+
     }
 
     // init rv
