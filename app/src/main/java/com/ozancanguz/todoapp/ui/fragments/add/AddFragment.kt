@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.todoapp.R
+import com.ozancanguz.todoapp.data.model.ToDo
 import com.ozancanguz.todoapp.databinding.FragmentAddBinding
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
@@ -27,12 +28,36 @@ class AddFragment : Fragment() {
         setHasOptionsMenu(true)
 
 
+
+
         return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.add_fragment_menu,menu)
+    }
+
+
+
+    // 2-menu onclick
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.menu.add_fragment_menu){
+            insertToDb()
+        }
+        return super.onOptionsItemSelected(item)
+
+    }
+
+    // 1-insert database fun
+    fun insertToDb(){
+        val title=binding.titleEt.text.toString()
+        val description=binding.descriptionEt.text.toString()
+
+        var newData= ToDo(title,description)
+
+
+
     }
 
 
