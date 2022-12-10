@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.ozancanguz.todoapp.R
+import com.ozancanguz.todoapp.data.model.ToDo
 import com.ozancanguz.todoapp.databinding.FragmentUpdateBinding
 
 
@@ -33,15 +34,34 @@ class UpdateFragment : Fragment() {
    return view
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.update_fragment_menu,menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
+    // get args fun
       fun getArgsFromList(){
           binding.currentDescriptionEt.setText(args.result.description)
           binding.currentTitleEt.setText(args.result.title)
       }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.update_fragment_menu,menu)
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    // save menu onclick listener
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==R.id.menu_save){
+            updateItem()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    // update item fun
+    fun updateItem(){
+        val title=binding.currentTitleEt.text.toString()
+        val description=binding.currentDescriptionEt.text.toString()
+
+        val updatedItem=ToDo(title,description)
+
+    }
 
 
 
