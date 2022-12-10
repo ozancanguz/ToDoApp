@@ -1,7 +1,9 @@
 package com.ozancanguz.todoapp.ui.fragments.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -21,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
@@ -115,6 +117,37 @@ class ListFragment : Fragment() {
         }
         val itemTouchHelper= ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+
+    // search database
+    private fun searchThroughDatabase(query: String) {
+        val searchQuery = "%$query%"
+
+        viewModel.searchDatabase(searchQuery).observe(viewLifecycleOwner) { list ->
+            list?.let {
+                Log.d("ListFragment", "searchThroughDatabase")
+                listAdapter.updateData(it)
+            }
+        }
+    }
+
+
+    // for search database
+    override fun onQueryTextSubmit(query: String?): Boolean {
+
+        if(query!=null){
+            searchThroughDatabase(query)
+        }
+        return true
+    }
+
+
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if(query!=null){
+            searchThroughDatabase(query)
+        }
+        return true
     }
 
 
