@@ -2,12 +2,15 @@ package com.ozancanguz.todoapp.ui.fragments.update
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.data.model.ToDo
 import com.ozancanguz.todoapp.databinding.FragmentUpdateBinding
-
+import com.ozancanguz.todoapp.viewmodels.ToDoViewModel
 
 
 class UpdateFragment : Fragment() {
@@ -17,6 +20,9 @@ class UpdateFragment : Fragment() {
 
     // init args
     private val args:UpdateFragmentArgs by navArgs()
+
+    //init viewmodel
+    private val viewmodel:ToDoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +65,15 @@ class UpdateFragment : Fragment() {
         val title=binding.currentTitleEt.text.toString()
         val description=binding.currentDescriptionEt.text.toString()
 
-        val updatedItem=ToDo(title,description)
+        val updatedItem=ToDo(args.result.id,title,description)
+
+        // data updated in fragment list
+        viewmodel.updateData(updatedItem)
+        Toast.makeText(requireContext(),"item updated",Toast.LENGTH_LONG).show()
+
+      // navigate to fragment list
+      findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+
 
     }
 

@@ -16,6 +16,11 @@ class Repository(private val toDoDao: ToDoDao) {
         return toDoDao.insertData(toDo)
     }
 
+    // update data to repo
+    suspend fun updateData(toDo: ToDo){
+        return toDoDao.updateData(toDo)
+    }
+
 
 
 

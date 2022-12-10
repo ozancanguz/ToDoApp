@@ -33,6 +33,13 @@ class ToDoViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
+    // updating data with backgroun thread
+    fun updateData(toDo: ToDo){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateData(toDo)
+        }
+    }
+
 
 
 

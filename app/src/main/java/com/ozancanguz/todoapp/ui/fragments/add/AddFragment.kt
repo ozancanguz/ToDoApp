@@ -62,7 +62,7 @@ class AddFragment : Fragment() {
         val title=binding.titleEt.text.toString()
         val description=binding.descriptionEt.text.toString()
 
-        var newData= ToDo(title,description)
+        var newData= ToDo(0,title,description)
 
         viewmodel.insertData(newData)
         Toast.makeText(requireContext(),"Data added to db",Toast.LENGTH_LONG).show()

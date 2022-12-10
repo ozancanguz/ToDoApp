@@ -10,12 +10,13 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "todo_table")
 data class ToDo(
+    @PrimaryKey(autoGenerate = true)
+    var id:Int=0,
     var title:String,
     var description:String
 
     ):Parcelable{
-    @PrimaryKey(autoGenerate = true)
-    var id:Int=0
+
 
     }
 

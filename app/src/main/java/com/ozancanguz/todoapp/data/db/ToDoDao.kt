@@ -1,10 +1,7 @@
 package com.ozancanguz.todoapp.data.db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.ozancanguz.todoapp.data.model.ToDo
 
 @Dao
@@ -18,6 +15,11 @@ interface ToDoDao {
     // insert
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertData(todo:ToDo)
+
+    // update
+    @Update
+    suspend fun updateData(todo: ToDo)
+
 
 
 
