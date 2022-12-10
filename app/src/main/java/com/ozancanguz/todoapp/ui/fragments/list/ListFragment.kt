@@ -8,12 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.adapter.ListAdapter
 import com.ozancanguz.todoapp.databinding.FragmentListBinding
+import com.ozancanguz.todoapp.utils.SwipeToDelete
 import com.ozancanguz.todoapp.viewmodels.ToDoViewModel
+import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
@@ -70,6 +74,7 @@ class ListFragment : Fragment() {
     fun initRv(){
         binding.recyclerView.layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         binding.recyclerView.adapter=listAdapter
+        swipeToDelete(binding.recyclerView)
     }
 
     // delete all menu onclick
@@ -95,6 +100,23 @@ class ListFragment : Fragment() {
         builder.setMessage("Are you sure you want to remove everything?")
         builder.create().show()
     }
+
+    //swipe to delete
+    private fun swipeToDelete(recyclerView: RecyclerView) {
+
+        val swipeToDeleteCallback=object : SwipeToDelete(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val itemtoDelete=listAdapter.todolist[viewHolder.adapterPosition]
+                viewModel.deleteSingleItem(itemtoDelete)
+                Toast.makeText(requireContext(),"Removed successfully",Toast.LENGTH_LONG).show()
+
+
+            }
+        }
+        val itemTouchHelper= ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+    }
+
 
 
 }
