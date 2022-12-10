@@ -1,10 +1,8 @@
 package com.ozancanguz.todoapp.ui.fragments.list
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.databinding.FragmentListBinding
@@ -19,6 +17,9 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        // set menu
+        setHasOptionsMenu(true)
 
         _binding = FragmentListBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -35,6 +36,12 @@ class ListFragment : Fragment() {
 
 
         return view
+    }
+
+    // init list fragment menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+         inflater.inflate(R.menu.list_fragment_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 

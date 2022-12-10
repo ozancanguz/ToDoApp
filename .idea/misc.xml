@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/drawable/custom_input.xml" value="0.1425" />
+        <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/layout/fragment_add.xml" value="0.20416666666666666" />
         <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/layout/fragment_list.xml" value="0.18" />
         <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/layout/fragment_update.xml" value="0.20416666666666666" />
+        <entry key="..\:/RealAndroiApps/ToDoApp/app/src/main/res/menu/list_fragment_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
