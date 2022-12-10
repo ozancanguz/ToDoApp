@@ -40,6 +40,14 @@ class ToDoViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
+    // deletin single item
+    fun deleteSingleItem(toDo: ToDo){
+        viewModelScope.launch {
+            repository.deleteSingleItem(toDo)
+        }
+
+    }
+
 
 
 
