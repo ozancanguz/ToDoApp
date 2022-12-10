@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="result"
+            app:argType="com.ozancanguz.todoapp.data.model.ToDo" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"

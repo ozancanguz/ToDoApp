@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.data.model.ToDo
+import com.ozancanguz.todoapp.ui.fragments.list.ListFragmentDirections
 import kotlinx.android.synthetic.main.list_row_layout.view.*
 
 class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -41,7 +42,9 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
 
         holder.itemView.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.action_listFragment_to_updateFragment)
+            val directions=ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(directions)
+
         }
 
 
