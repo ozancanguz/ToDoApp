@@ -7,24 +7,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.todoapp.R
+import com.ozancanguz.todoapp.databinding.FragmentListBinding
+import com.ozancanguz.todoapp.databinding.FragmentUpdateBinding
 import kotlinx.android.synthetic.main.fragment_list.view.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 
 
 class UpdateFragment : Fragment() {
 
+    private var _binding: FragmentUpdateBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_update, container, false)
+        _binding = FragmentUpdateBinding.inflate(inflater, container, false)
+        val view = binding.root
 
 
-       view.updatebtn.setOnClickListener {
-           findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-       }
+
+
 
    return view
     }
