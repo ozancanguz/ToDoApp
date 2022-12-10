@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ozancanguz.todoapp.R
-import com.ozancanguz.todoapp.databinding.FragmentAddBinding
 import com.ozancanguz.todoapp.databinding.FragmentListBinding
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -24,6 +23,9 @@ class ListFragment : Fragment() {
         _binding = FragmentListBinding.inflate(inflater, container, false)
         val view = binding.root
 
+         binding.floatingActionButton.setOnClickListener {
+             findNavController().navigate(R.id.action_listFragment_to_addFragment)
+         }
 
 
 
