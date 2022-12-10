@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.todoapp.R
 import com.ozancanguz.todoapp.data.model.ToDo
 import com.ozancanguz.todoapp.ui.fragments.list.ListFragmentDirections
+import com.ozancanguz.todoapp.utils.Diffutil.ToDoDiffUtil
 import kotlinx.android.synthetic.main.list_row_layout.view.*
 
 class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -19,8 +21,10 @@ class ListAdapter:RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     // update ui
      fun updateData(newData:List<ToDo>){
-         this.todolist=newData
-        notifyDataSetChanged()
+        val toDoDiffUtil= ToDoDiffUtil(todolist,newData)
+        val tododiffResult= DiffUtil.calculateDiff(toDoDiffUtil)
+        this.todolist=newData
+        tododiffResult.dispatchUpdatesTo(this)
      }
 
     class MyViewHolder(view: View):RecyclerView.ViewHolder(view){
