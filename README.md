@@ -1,13 +1,3 @@
---Tool that I Used--
-
--Navigation Component
--Room 
--Coroutines for database 
--Livedata
--View Binding
--LottieAnimationView
--Architecture:MVVM
-
 
 
 
