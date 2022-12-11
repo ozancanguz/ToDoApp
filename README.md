@@ -1,5 +1,16 @@
 
+**Tools that I used** :
 
+- Navigation Component
+- Room
+- Coroutines for database
+- Livedata
+- View Binding
+- LottieAnimationView
+
+**Arhictecture:**
+
+- MVVM
 
 
 
